@@ -1,22 +1,40 @@
 <section>
-  <p>그냥 대신에 고민.</p>
-  <p>처음 보는 기술에 과감히 뛰어들기.</p>
-  <p>나 자신과의 싸움을 통한 성장.</p>
-  <p>더 쉬운 문제로 바꾸어 생각하기.</p>
+  <div>
+    <h3>그냥 대신에 고민</h3>
+    <p>왜 그렇게 하려고 하는지 한 번쯤은 생각해 봅니다.</p>
+  </div>
+
+  <div>
+    <h3>더 쉬운 문제로 바꾸어 생각하기</h3>
+    <p>크고 추상적인 문제를 더 작고 구체적인 문제로 나누어 해결합니다.</p>
+  </div>
+
+  <div>
+    <h3>처음 보는 기술에 과감히 뛰어들기</h3>
+    <p>
+      주어진 자료로도 이해하기 어려운 부분이 있다면 코드를 볼 때도 있습니다.
+    </p>
+  </div>
 </section>
 
 <style>
-  /* TODO: TEMP */
-  section {
-    background-color: oklch(90% 0.05 60deg);
-  }
-
   section {
     grid-row: 1 / var(--grid-row-skillset);
     grid-column: var(--grid-column-descriptions) / -1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  h3 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: normal;
   }
 
   p {
-    font-size: 24px;
+    margin: 8px 0 0;
   }
 </style>
