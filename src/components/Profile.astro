@@ -1,0 +1,76 @@
+<section>
+  {/* <img class="portrait" width="3" height="4" alt="프로필 사진" /> */}
+
+  <div class="info">
+    <div>
+      <h2>ㅇㅇㅇ</h2>
+      <p>Frontend Developer</p>
+    </div>
+
+    <dl>
+      <div>
+        <dt>
+          <img width="24" height="24" alt="이메일" />
+        </dt>
+        <dd>leeye51456@gmail.com</dd>
+      </div>
+
+      <div>
+        <dt>
+          <img width="24" height="24" alt="GitHub" />
+        </dt>
+        <dd>
+          <a href="https://github.com/yejunian" target="_blank">@yejunian</a>
+        </dd>
+      </div>
+
+      <div>
+        <dt>
+          <img width="24" height="24" alt="블로그" />
+        </dt>
+        <dd>
+          <a href="https://yejunian.github.io/blog/" target="_blank"
+            >https://yejunian.github.io/blog/</a
+          >
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<style>
+  /* TODO: TEMP */
+  section {
+    background-color: oklch(90% 0.05 0deg);
+  }
+
+  section {
+    grid-row: 1 / var(--grid-row-skillset);
+    grid-column: 1 / var(--grid-column-descriptions);
+
+    display: flex;
+    gap: 24px;
+  }
+
+  img {
+    display: block;
+  }
+
+  .portrait {
+    /* TODO: TEMP */
+    background-color: oklch(80% 0.05 0deg);
+
+    flex: 0 0;
+
+    width: auto;
+    height: 100%;
+  }
+
+  .info {
+    /* TODO: TEMP */
+    background-color: oklch(80% 0.05 0deg);
+
+    flex: 1 1;
+    width: max-content;
+  }
+</style>

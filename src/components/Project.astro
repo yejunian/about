@@ -1,0 +1,59 @@
+---
+export interface Props {
+  index: number;
+  title: string;
+  keywords?: string[];
+  environment?: string[];
+}
+
+const { index, title, keywords = [], environment = [] } = Astro.props;
+
+const gridRowStart = Math.min(Math.floor(index / 3 + 2), 3);
+const gridRowEnd = index === 2 ? -2 : -1;
+const gridColumn = Math.min(index + 1, 3);
+---
+
+<section>
+  <h3>{title}</h3>
+
+  {
+    keywords.length ? (
+      <ul>
+        {keywords.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  {
+    environment.length ? (
+      <ul>
+        {environment.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  <div>
+    <slot />
+  </div>
+</section>
+
+<style
+  define:vars={{
+    "grid-row": `${gridRowStart} / ${gridRowEnd}`,
+    "grid-column": gridColumn,
+  }}
+>
+  /* TODO: TEMP */
+  section {
+    background-color: oklch(90% 0.05 180deg);
+  }
+
+  section {
+    grid-row: var(--grid-row);
+    grid-column: var(--grid-column);
+  }
+</style>
