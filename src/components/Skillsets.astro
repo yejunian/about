@@ -1,41 +1,52 @@
 ---
+import { Icon } from "astro-icon/components";
+
 type Skillset = {
+  icon: string;
   name: string;
   rate: number;
 };
 
 const skillsets: Skillset[] = [
   {
+    icon: "devicon:javascript",
     name: "JavaScript",
-    rate: 1,
+    rate: 3,
   },
   {
+    icon: "devicon:typescript",
     name: "TypeScript",
-    rate: 0.8,
+    rate: 2,
   },
   {
+    icon: "devicon:react",
     name: "React",
+    rate: 3,
+  },
+  {
+    icon: "devicon:zustand",
+    name: "Zustand",
+    rate: 2,
+  },
+  {
+    icon: "devicon:tailwindcss",
+    name: "Tailwind CSS",
+    rate: 2,
+  },
+  {
+    icon: "devicon:sass",
+    name: "SCSS",
     rate: 1,
   },
   {
-    name: "Zustand",
-    rate: 0.8,
-  },
-  {
-    name: "Tailwind CSS",
-    rate: 0.8,
-  },
-  {
-    name: "SCSS",
-    rate: 0.6,
-  },
-  {
+    icon: "devicon:express",
     name: "Express",
-    rate: 0.8,
+    rate: 2,
   },
   {
+    icon: "devicon:docker",
     name: "Docker",
-    rate: 0.6,
+    rate: 1,
   },
 ];
 ---
@@ -46,20 +57,75 @@ const skillsets: Skillset[] = [
   <ul>
     {
       skillsets.map((item) => (
-        <li class={`rate-${Math.round(item.rate * 5)}`}>{item.name}</li>
+        <li class={`rate-${item.rate}`}>
+          <Icon name={item.icon} size="32px" />
+          <div class="name">{item.name}</div>
+        </li>
       ))
     }
   </ul>
 </section>
 
 <style>
-  /* TODO: TEMP */
-  section {
-    background-color: oklch(90% 0.05 120deg);
-  }
-
   section {
     grid-row: var(--grid-row-skillset) / -1;
     grid-column: 1 / var(--grid-column-projects);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin: 16px 0 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 18px;
+  }
+  li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 38px;
+    z-index: -1;
+
+    width: calc(40% + 20% * var(--skill-item-rate, 0) - 36px);
+    height: 24px;
+    border-left: 8px solid oklch(62.3% 0.214 259.815 / 0.1);
+    border-radius: 2px;
+    background-color: oklch(62.3% 0.214 259.815 / 0.2);
+
+    transform: translateY(-50%) skewX(-10deg);
+  }
+
+  li .name {
+    flex: 1 0;
+
+    padding: 0 4px;
+  }
+
+  li.rate-3 {
+    --skill-item-rate: 3;
+
+    font-weight: bold;
+  }
+
+  li.rate-2 {
+    --skill-item-rate: 2;
+  }
+
+  li.rate-1 {
+    --skill-item-rate: 1;
+
+    font-size: 16px;
   }
 </style>
