@@ -1,23 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section>
   {/* <img class="portrait" width="3" height="4" alt="프로필 사진" /> */}
 
   <div class="info">
     <div>
-      <h2>ㅇㅇㅇ</h2>
-      <p>Frontend Developer</p>
+      <h2>이예준</h2>
+      <p>Web Frontend Developer</p>
     </div>
 
     <dl>
       <div>
         <dt>
-          <img width="24" height="24" alt="이메일" />
+          <Icon name="tabler:mail" size="24px" desc="이메일" />
         </dt>
         <dd>leeye51456@gmail.com</dd>
       </div>
 
       <div>
         <dt>
-          <img width="24" height="24" alt="GitHub" />
+          <Icon name="tabler:brand-github" size="24px" desc="GitHub" />
         </dt>
         <dd>
           <a href="https://github.com/yejunian" target="_blank">@yejunian</a>
@@ -26,7 +30,7 @@
 
       <div>
         <dt>
-          <img width="24" height="24" alt="블로그" />
+          <Icon name="tabler:home" size="24px" desc="블로그" />
         </dt>
         <dd>
           <a href="https://yejunian.github.io/blog/" target="_blank"
@@ -39,11 +43,6 @@
 </section>
 
 <style>
-  /* TODO: TEMP */
-  section {
-    background-color: oklch(90% 0.05 0deg);
-  }
-
   section {
     grid-row: 1 / var(--grid-row-skillset);
     grid-column: 1 / var(--grid-column-descriptions);
@@ -67,10 +66,51 @@
   }
 
   .info {
-    /* TODO: TEMP */
-    background-color: oklch(80% 0.05 0deg);
-
     flex: 1 1;
     width: max-content;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  p {
+    margin: 8px 0 0;
+
+    font-size: 20px;
+  }
+
+  dl {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 24px;
+
+    font-size: 18px;
+  }
+
+  dl > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  dl > div > dt {
+    flex: 0 0;
+  }
+
+  dl > div > dd {
+    margin: 0;
+  }
+
+  a {
+    color: oklch(42.4% 0.199 265.638);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: oklch(48.8% 0.243 264.376);
+    text-decoration: underline;
   }
 </style>
